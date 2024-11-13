@@ -2,20 +2,207 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  h1 {
+    @apply text-h1 font-pretendard tracking-h1 text-gray-900;
+  }
+
+  h2 {
+    @apply text-h2 font-pretendard tracking-h2 text-gray-900;
+  }
+
+  h3 {
+    @apply text-h3 font-pretendard tracking-h3 text-gray-900;
+  }
+
+  h4 {
+    @apply text-h4 font-pretendard tracking-h4 text-gray-900;
+  }
+
+  h5 {
+    @apply text-h5 font-pretendard tracking-h5 text-gray-900;
+  }
+
+  input,
+  textarea {
+    @apply border-gray-500 border rounded-lg px-4 py-3 h-12 text-gray-900 my-2 placeholder-gray-700 outline-none font-pretendard;
+    -webkit-appearance: none;
+  }
+
+  input[type='number'].appearance-none::-webkit-inner-spin-button,
+  input[type='number'].appearance-none::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .p1 {
+    @apply text-p1 font-pretendard tracking-p1 text-gray-900;
+  }
+
+  .c1 {
+    @apply text-c1 font-pretendard tracking-c1 text-gray-900;
+  }
+
+  .c0 {
+    @apply text-c0 font-pretendard tracking-c0 text-gray-900;
+  }
+
+  .fixedBottomButton {
+    @apply fixed bottom-0 py-5 w-full max-w-[560px] inset-x-0 m-auto px-default bg-white;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.2s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slide-out {
+  animation: slideOut 0.2s ease-in-out forwards;
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .slide-up {
+    animation: slideUpWithOpacity 0.2s ease-in-out forwards;
+  }
+
+  .slide-down {
+    animation: slideDownWithOpacity 0.2s ease-in-out forwards;
+  }
+}
+
+@media (max-width: 1023px) {
+  .slide-up {
+    animation: slideUp 0.2s ease-in-out forwards;
+  }
+
+  .slide-down {
+    animation: slideDown 0.2s ease-in-out forwards;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes slideUpWithOpacity {
+  from {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDownWithOpacity {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+}
+
+.button-up {
+  animation: buttonUp 0.2s ease-in-out forwards;
+}
+
+@keyframes buttonUp {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-4px, -4px);
+  }
+}
+
+@keyframes buttonDown {
+  from {
+    transform: translate(0px, 0px);
+  }
+  to {
+    transform: translate(4px, 4px);
+  }
+}
+
+.tiptap {
+  a {
+    text-decoration-color: rgb(159, 125, 73);
+    text-decoration-line: underline;
+  }
+  padding: 10px;
+  min-height: 300px;
+  outline: none;
 }
